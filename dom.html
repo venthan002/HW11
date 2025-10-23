@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Example</title>
+</head>
+<body>
+  <h2>Event Handling Example</h2>
+
+  <!-- Input field -->
+  <input type="text" id="userInput" placeholder="Type something...">
+  <p id="display"></p>
+
+  <!-- Button -->
+  <button id="showBtn">Click Me</button>
+
+  <!-- Form -->
+  <form id="myForm">
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // 1. Show input value while typing
+    const input = document.getElementById('userInput');
+    const display = document.getElementById('display');
+
+    input.addEventListener('input', () => {
+      display.textContent = `You typed: ${input.value}`;
+    });
+
+    // 2. Button click event
+    const button = document.getElementById('showBtn');
+    button.addEventListener('click', () => {
+      alert('Button was clicked!');
+    });
+
+    // 3. Handle form submit event
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Stop page reload
+      const name = document.getElementById('nameInput').value;
+      alert(`Form submitted! Name: ${name}`);
+    });
+  </script>
+</body>
+</html>
